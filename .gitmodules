@@ -1,0 +1,3 @@
+[submodule "pipelines/ispras/computel/computel"]
+	path = pipelines/ispras/computel/computel
+	url = https://github.com/lilit-nersisyan/computel.git

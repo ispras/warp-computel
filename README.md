@@ -1,18 +1,31 @@
+## Computel install
+cd dockers/ispras/bowtie2
+docker build -t bowtie2:2.1.0 .
 
-### WDL Analysis Research Pipelines
+cd dockers/ispras/samtools
+docker build -t samtools:1.11 .
 
-The WDL Analysis Research Pipelines (WARP) repository is a collection of cloud-optimized pipelines for processing biological data from the Broad Institute Data Sciences Platform and collaborators.
+cd dockers/ispras/rlang_computel
+docker build -t rlang_computel:3.6.3 .
 
-WARP provides robust, standardized data analysis for the Broad Institute Genomics Platform and large consortia like the Human Cell Atlas and the BRAIN Initiative. WARP pipelines are rigorously scientifically validated, high scale, reproducible and open source, released under the [BSD 3-Clause license](https://github.com/broadinstitute/warp/blob/master/LICENSE).
+cd pipelines/ispras/computel/
 
-### Pipeline releases
-All pipeline releases are listed on the WARP [releases page](https://github.com/broadinstitute/warp/releases). To discover and search releases, use the WARP command-line tool [Wreleaser](https://github.com/broadinstitute/warp/tree/develop/wreleaser).
+git submodule init
+git submodule update
+
+wget https://github.com/broadinstitute/cromwell/releases/download/85/cromwell-85.jar
+
+## Computel run
+sudo java -Dconfig.file=docker.conf -jar cromwell-85.jar run Computel.wdl --inputs Computel.inputs.json
+
+## Computel results
+cd cromwell-executions/Computel/RUN_ID/call-RlangComputel/execution
+
+tel.variants.txt
+tel.length.txt
 
 
-### WARP documentation
+## Extra info
+The structure of the original warp repository from Broad Institute has been preserved for the compatibility of repositories with pipelines.
+Computel version 1.2 code has been modified to be able to use other alignment algorithms in the future.
 
-Read more about our pipelines and repository on the [WARP documentation site](https://broadinstitute.github.io/warp/).
-
-To contribute to WARP, please read the [contribution guidelines](https://broadinstitute.github.io/warp/docs/contribution/README).
-
-[![Build Status](https://img.shields.io/github/workflow/status/broadinstitute/warp/Deploy%20WARP%20Website?label=Website&logo=github&style=flat-square)](https://github.com/broadinstitute/warp/actions?query=workflow%3A%22Deploy+WARP+Website%22)

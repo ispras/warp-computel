@@ -1,0 +1,6 @@
+TTAGGG
+
+num.haploid.chr=23
+min.seed=12
+genome.length=3101804739
+qualt = 25

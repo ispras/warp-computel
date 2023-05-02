@@ -1,0 +1,25 @@
+{
+	"Computel.fastq_r1_gzipped_input": "./computel/src/examples/tel_reads1.fq.gz",
+	"Computel.fastq_r2_gzipped_input": "./computel/src/examples/tel_reads2.fq.gz",
+	"Computel.bowtie2_index_files": [
+		"./index/tel_index.1.bt2",
+		"./index/tel_index.2.bt2",
+		"./index/tel_index.3.bt2",
+		"./index/tel_index.4.bt2",
+		"./index/tel_index.rev.1.bt2",
+		"./index/tel_index.rev.2.bt2"
+	],
+	"Computel.output_basename": "Computel",
+	"Computel.bowtie2_index_basename": "tel_index",
+	"Computel.rscript_main":"./rscript/pipeline.R",
+	"Computel.rscript_functions":"./rscript/functions.R",
+	"Computel.tel_length_txt":"tel.length.txt",
+	"Computel.tel_variants_txt":"tel.variants.txt",
+	"Computel.reference": "./index/tel_index.fasta",
+	"Computel.docker" : {
+		"bowtie2": "bowtie2:2.1.0",
+		"samtools": "samtools:1.11",
+		"rlang_computel": "rlang_computel:3.6.3"
+        },
+	"Computel.cores": 8
+}
